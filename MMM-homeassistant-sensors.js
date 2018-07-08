@@ -48,8 +48,8 @@ Module.register("MMM-homeassistant-sensors", {
 					var name = this.getName(data, sensor);
 					var unit = this.getUnit(data, sensor);
 					if(values[i].name) {
-					    name = values[i].name;
-                    }
+						name = values[i].name;
+					}
 					if (val) {
 						tableElement.appendChild(this.addValue(name, val, unit, icons));
 					}
