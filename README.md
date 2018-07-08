@@ -44,13 +44,13 @@ modules: [{
 		module: 'MMM-homeassistant-sensors',
 		position: 'top_left',
 		config: {
-			url: 'https://yourehomeassistant:8123/api/states?api_password=secret',
+			url: 'https://yourhomeassistant:8123/api/states?api_password=secret',
 			prettyName: false,
 			stripName: false,
 			values: [{
 					sensor: "sensor.processor_use",
 					icons: [{
-							"default": "chip",
+							"default": "chip"
 						}
 					]
 				}, {
