@@ -27,15 +27,16 @@ It is very simple to set up this module, a sample configuration looks like this:
 ## values option
 | Option               | Description |
 | -------------------- | ----------- |
-| `sensor`             | entity_id as of home-assistant. Please hav a look at teh states pages for the unique entity_id of your sensor |
-| `icons`             | an icons object for the on/off status of sensor. please see: [MaterialDesignIcons](https://materialdesignicons.com/) |
+| `sensor`             | entity_id as of home-assistant. Please have a look at teh states pages for the unique entity_id of your sensor |
+| `name`               | custom display name |
+| `icons`              | an icons object for the on/off status of sensor. please see: [MaterialDesignIcons](https://materialdesignicons.com/) |
 
 ## icons option
 | Option               | Description |
 | -------------------- | ----------- |
-| `default`             | default icon of the sensor. In case there is no on/off status, like processor use. |
-| `state_on`             | on status icon of the sensor |
-| `state_off`             | off status icon of the sensor |
+| `default`            | default icon of the sensor. In case there is no on/off status, like processor use. |
+| `state_on`           | on status icon of the sensor |
+| `state_off`          | off status icon of the sensor |
 
 Here is an example of an entry in `config.js`
 ```
@@ -43,17 +44,18 @@ modules: [{
 		module: 'MMM-homeassistant-sensors',
 		position: 'top_left',
 		config: {
-			url: 'https://youehomeassistant:8123/api/states?api_password=secret',
+			url: 'https://yourehomeassistant:8123/api/states?api_password=secret',
 			prettyName: false,
 			stripName: false,
 			values: [{
 					sensor: "sensor.processor_use",
 					icons: [{
-							"default": "chip"
+							"default": "chip",
 						}
 					]
 				}, {
 					sensor: "binary_sensor.sensor",
+					name: "Motion"
 					icons: [{
 							"state_off": "run",
 							"state_on": "run-fast"
