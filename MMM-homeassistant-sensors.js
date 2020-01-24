@@ -6,9 +6,14 @@ Module.register("MMM-homeassistant-sensors", {
 		prettyName: true,
 		stripName: true,
 		title: 'Home Assistant',
-		url: '',
-		updateInterval: 3000,
+		host: 'hassio.local',
+		port: '8321',
+		https: false, 
+		token: '',
+		apipassword: '',
+		updateInterval: 300000,
 		displaySymbol: true,
+		debuglogging: false,
 		values: []
 	},
 
@@ -129,6 +134,14 @@ Module.register("MMM-homeassistant-sensors", {
 					iconsinline = document.createElement("i");
 					iconsinline.className = "mdi mdi-" + icons.state_off;
 					newCell.appendChild(iconsinline);
+				} else if (value == "open" && typeof icons.state_open === "string") {
+					iconsinline = document.createElement("i");
+					iconsinline.className = "mdi mdi-" + icons.state_open;
+					newCell.appendChild(iconsinline);
+				} else if (value == "closed" && typeof icons.state_closed === "string") {
+					iconsinline = document.createElement("i");
+					iconsinline.className = "mdi mdi-" + icons.state_closed;
+					newCell.appendChild(iconsinline);
 				} else {
 					if (typeof icons.default === "string") {
 						iconsinline = document.createElement("i");
@@ -165,7 +178,7 @@ Module.register("MMM-homeassistant-sensors", {
 		}, nextLoad);
 	},
 	getStats: function () {
-		this.sendSocketNotification('GET_STATS', this.config.url);
+		this.sendSocketNotification('GET_STATS', this.config);
 	},
 	socketNotificationReceived: function (notification, payload) {
 		if (notification === "STATS_RESULT") {
